@@ -1,6 +1,7 @@
 // Copyright 2022 Krivosheev Miron
 
 #include "include/bit_array.h"
+#include <string>
 
 BitArray::BitArray() {
   arr = NULL;

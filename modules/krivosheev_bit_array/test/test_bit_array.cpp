@@ -46,3 +46,37 @@ TEST(BitArrayTest, CopyConstructor) {
   for (int i = 0; i < arrC.GetSizeBits(); i++)
     EXPECT_EQ(arr.GetBit(i), arrC.GetBit(i));
 }
+
+TEST(BitArrayTest, DeleteArray) {
+  // Arrange
+  BitArray arr(10);
+  arr.DeleteArray();
+
+  // Act & Assert
+  ASSERT_TRUE(arr.IsEmpty());
+}
+
+TEST(BitArrayTest, DeleteEmptyArray) {
+  // Arrange
+  BitArray arr;
+
+  // Act & Assert
+  ASSERT_ANY_THROW(arr.DeleteArray());
+}
+
+TEST(BitArrayTest, AllocateEmptyArray) {
+  // Arrange
+  BitArray arr;
+  arr.AllocateArray(10);
+
+  // Act & Assert
+  ASSERT_FALSE(arr.IsEmpty());
+}
+
+TEST(BitArrayTest, TryToAllocateMotEmptyArray) {
+  // Arrange
+  BitArray arr(10);
+
+  // Act & Assert
+  ASSERT_ANY_THROW(arr.AllocateArray(20));
+}

@@ -45,3 +45,23 @@ bool BitArray::GetBit(unsigned int bitPos) {
 bool BitArray::IsEmpty() {
   return size == 0 && bitSize == 0 && arr == NULL;
 }
+
+void BitArray::DeleteArray() {
+  if (arr == NULL)
+    throw std::exception("Array alrady NULL");
+  for (int i = 0; i < size; i++)
+    arr[i] = 0;
+  delete[] arr;
+  size = 0;
+  bitSize = 0;
+  arr = NULL;
+}
+
+void BitArray::AllocateArray(int _bitSize) {
+  if (arr != NULL)
+    throw std::exception("You can't allocate array while it isn't NULL, "
+      "delete array at first");
+  bitSize = _bitSize;
+  size = bitSize / 8 + 1;
+  arr = new char[size];
+}

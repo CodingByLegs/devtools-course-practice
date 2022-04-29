@@ -18,6 +18,8 @@ class BitArray {
   void SetBit(unsigned int bitPos, bool val);
   bool GetBit(unsigned int bitPos);
   bool IsEmpty();
+  void DeleteArray();
+  void AllocateArray(int _bitSize);
 };
 
 #endif  // MODULES_KRIVOSHEEV_BIT_ARRAY_INCLUDE_BIT_ARRAY_H_

@@ -87,3 +87,11 @@ TEST(BitArrayTest, TryToAllocateMotEmptyArray) {
   // Act & Assert
   ASSERT_ANY_THROW(arr.AllocateArray(20));
 }
+
+TEST(BitArrayTest, GetSizeBits) {
+  // Arrange
+  BitArray arr(10);
+
+  // Act & Assert
+  EXPECT_EQ(10, arr.GetSizeBits());
+}

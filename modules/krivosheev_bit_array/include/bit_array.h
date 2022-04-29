@@ -12,7 +12,7 @@ class BitArray {
   unsigned int size;
  public:
   BitArray();
-  explicit BitArray(const int _bitSize);
+  explicit BitArray(const unsigned int _bitSize);
   BitArray(const BitArray& arrCopy);
   int GetSizeBits();
   void SetBit(unsigned int bitPos, bool val);

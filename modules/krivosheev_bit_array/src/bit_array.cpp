@@ -9,11 +9,11 @@ BitArray::BitArray() {
   bitSize = 0;
 }
 
-BitArray::BitArray(int _bitSize) {
+BitArray::BitArray(const unsigned int _bitSize) {
   size = _bitSize / 8  + 1;
   bitSize = _bitSize;
   arr = new char[size];
-  for (int i = 0; i < size; i++)
+  for (int i = 0; i < static_cast<int>(size); i++)
     arr[i] = 0;
 }
 

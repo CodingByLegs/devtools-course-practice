@@ -8,8 +8,8 @@
 class BitArray {
  private:
   char* arr;
-  int bitSize;
-  int size;
+  unsigned int bitSize;
+  unsigned int size;
  public:
   BitArray();
   explicit BitArray(const int _bitSize);

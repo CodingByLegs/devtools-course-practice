@@ -29,14 +29,14 @@ int BitArray::GetSizeBits() {
 }
 
 void BitArray::SetBit(unsigned int bitPos, bool val) {
-  if (bitPos >= bitSize)
+  if (bitPos >= size * 8)
     throw std::exception("Out of range");
   int pos = bitPos / 8;
   arr[pos] = arr[pos] | (static_cast<int>(val) << (7 - bitPos % 8));
 }
 
 bool BitArray::GetBit(unsigned int bitPos) {
-  if (bitPos >= bitSize)
+  if (bitPos >= size * 8)
     throw std::exception("Out of range");
   int pos = bitPos / 8;
   return arr[pos] & 1 << (7 - bitPos % 8);

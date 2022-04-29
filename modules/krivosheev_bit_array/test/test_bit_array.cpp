@@ -31,8 +31,15 @@ TEST(BitArrayTest, Set_Get) {
 TEST(BitArrayTest, Set_Get_OutOfRange) {
   // Arrange
   BitArray arr(2);
-  ASSERT_ANY_THROW(arr.SetBit(3, 1));
-  ASSERT_ANY_THROW(arr.GetBit(3));
+  ASSERT_ANY_THROW(arr.SetBit(8, 1));
+  ASSERT_ANY_THROW(arr.GetBit(8));
+}
+
+TEST(BitArrayTest, Set_Get_Feature) {
+  // Arrange
+  BitArray arr(2);
+  arr.SetBit(6, 1);
+  EXPECT_EQ(1, arr.GetBit(6));
 }
 
 TEST(BitArrayTest, CopyConstructor) {

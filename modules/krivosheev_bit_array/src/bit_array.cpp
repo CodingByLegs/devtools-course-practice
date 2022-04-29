@@ -20,7 +20,7 @@ BitArray::BitArray(const BitArray& arrCopy) {
   bitSize = arrCopy.bitSize;
   size = arrCopy.size;
   arr = new char[size];
-  for (int i = 0; i < size; i++)
+  for (int i = 0; i < static_cast<int>(size); i++)
     arr[i] = arrCopy.arr[i];
 }
 
@@ -30,14 +30,14 @@ int BitArray::GetSizeBits() {
 
 void BitArray::SetBit(unsigned int bitPos, bool val) {
   if (bitPos >= size * 8)
-    throw std::exception("Out of range");
+    throw std::string("Out of range");
   int pos = bitPos / 8;
   arr[pos] = arr[pos] | (static_cast<int>(val) << (7 - bitPos % 8));
 }
 
 bool BitArray::GetBit(unsigned int bitPos) {
   if (bitPos >= size * 8)
-    throw std::exception("Out of range");
+    throw std::string("Out of range");
   int pos = bitPos / 8;
   return arr[pos] & 1 << (7 - bitPos % 8);
 }
@@ -48,8 +48,8 @@ bool BitArray::IsEmpty() {
 
 void BitArray::DeleteArray() {
   if (arr == NULL)
-    throw std::exception("Array alrady NULL");
-  for (int i = 0; i < size; i++)
+    throw std::string("Array alrady NULL");
+  for (int i = 0; i < static_cast<int>(size); i++)
     arr[i] = 0;
   delete[] arr;
   size = 0;
@@ -59,7 +59,7 @@ void BitArray::DeleteArray() {
 
 void BitArray::AllocateArray(int _bitSize) {
   if (arr != NULL)
-    throw std::exception("You can't allocate array while it isn't NULL, "
+    throw std::string("You can't allocate array while it isn't NULL, "
       "delete array at first");
   bitSize = _bitSize;
   size = bitSize / 8 + 1;

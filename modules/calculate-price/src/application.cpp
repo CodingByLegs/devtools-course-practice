@@ -1,8 +1,8 @@
 // Copyright 2022 Krivosheev Miron
 
+#include <string>
 #include "include/application.h"
 #include "include/calculate_price.h"
-#include <string>
 
 CalculateBooksPriceApp::CalculateBooksPriceApp() : message_("") {}
 
